@@ -1,0 +1,67 @@
+/* Estilização geral do container */
+.cadastro-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff8dc; /* Dourado Claro */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Título da página */
+  .cadastro-container h2 {
+    color: #8B5A2B; /* Marrom */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilização dos inputs */
+  .cadastro-container input,
+  .cadastro-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #8B5A2B; /* Marrom */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  
+  /* Estilização do botão */
+  .cadastro-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #8B5A2B; /* Marrom */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* Efeito ao passar o mouse no botão */
+  .cadastro-container button:hover {
+    background-color: #A67B5B; /* Marrom mais claro */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .cadastro-container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .cadastro-container input,
+    .cadastro-container select {
+      font-size: 14px;
+    }
+  
+    .cadastro-container button {
+      font-size: 16px;
+    }
+  }
+  

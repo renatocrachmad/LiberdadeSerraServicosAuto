@@ -1,0 +1,118 @@
+/* Container principal */
+.servicos-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff8dc; /* Dourado Claro */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Título */
+  .servicos-container h2 {
+    color: #8B5A2B; /* Marrom */
+    margin-bottom: 20px;
+  }
+  
+  /* Estilização da tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  /* Cabeçalho da tabela */
+  th {
+    background-color: #8B5A2B; /* Marrom */
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Linhas da tabela */
+  td, th {
+    border: 1px solid #8B5A2B;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Linhas alternadas */
+  tbody tr:nth-child(even) {
+    background-color: #f4e1c6; /* Dourado mais claro */
+  }
+  
+  /* Estilização dos status */
+  .status {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .status.aprovado {
+    background-color: green;
+    color: white;
+  }
+  
+  .status.rejeitado {
+    background-color: red;
+    color: white;
+  }
+  
+  .status.aguardando-aprovação {
+    background-color: orange;
+    color: white;
+  }
+  
+  /* Botões */
+  button {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 16px;
+  }
+  
+  /* Botão Aprovar */
+  .btn-aprovar {
+    background-color: green;
+    color: white;
+  }
+  
+  .btn-aprovar:hover {
+    background-color: darkgreen;
+  }
+  
+  /* Botão Rejeitar */
+  .btn-rejeitar {
+    background-color: red;
+    color: white;
+  }
+  
+  .btn-rejeitar:hover {
+    background-color: darkred;
+  }
+  
+  /* Botão Gerar Contrato */
+  .btn-contrato {
+    background-color: #8B5A2B; /* Marrom */
+    color: white;
+  }
+  
+  .btn-contrato:hover {
+    background-color: #A67B5B; /* Marrom mais claro */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .servicos-container {
+      width: 90%;
+    }
+  
+    table {
+      font-size: 14px;
+    }
+  }
+  
