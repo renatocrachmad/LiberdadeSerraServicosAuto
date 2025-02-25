@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Ícones
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,21 +27,31 @@ const Login = () => {
         value={login}
         onChange={(e) => setLogin(e.target.value)}
       />
-      <input
-        type={mostrarSenha ? "text" : "password"}
-        placeholder="Senha"
-        value={senha}
-        onChange={(e) => setSenha(e.target.value)}
-      />
-      <button onClick={() => setMostrarSenha(!mostrarSenha)}>👁</button>
-      <label>
+      <div className="password-container">
         <input
-          type="checkbox"
-          checked={lembrarSenha}
-          onChange={() => setLembrarSenha(!lembrarSenha)}
+          type={mostrarSenha ? "text" : "password"}
+          placeholder="Senha"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
         />
-        Lembrar senha
-      </label>
+        <div
+          className="eye-icon"
+          onClick={() => setMostrarSenha(!mostrarSenha)}
+        >
+          {mostrarSenha ? <FaEyeSlash /> : <FaEye />}
+        </div>
+      </div>
+
+      <div className="remember-password">
+        <label>
+          <input
+            type="checkbox"
+            checked={lembrarSenha}
+            onChange={() => setLembrarSenha(!lembrarSenha)}
+          />
+          Lembrar senha
+        </label>
+      </div>
       <button onClick={handleLogin}>Entrar</button>
       <button onClick={() => navigate("/cadastro")}>Cadastrar-se</button>
     </div>
