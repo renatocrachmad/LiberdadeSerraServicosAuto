@@ -6,7 +6,8 @@ import Cadastro from "./pages/Cadastro";
 import Home from "./pages/Home";
 import BuscarPrestadores from "./pages/BuscarPrestadores";
 import Financeiro from "./pages/Financeiro";
-import Servicos from "./pages/Serviços";
+import Servicos from "./pages/Servicos";
+import PerfilPrestador from "./pages/PerfilPrestador"; // ✅ Importação correta
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/buscar-prestadores" element={<BuscarPrestadores />} />
         <Route path="/financeiro" element={<Financeiro />} />
         <Route path="/servicos" element={<Servicos />} />
+        <Route path="/perfil-prestador" element={<PerfilPrestador />} /> {/* ✅ Caminho corrigido */}
       </Routes>
     </Router>
   );

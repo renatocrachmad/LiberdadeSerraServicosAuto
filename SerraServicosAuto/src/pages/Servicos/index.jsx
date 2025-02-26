@@ -8,6 +8,7 @@ const Servicos = () => {
       id: 1, 
       cliente: "Carlos Silva", 
       tipo: "Troca de óleo", 
+      descricao: "Troca completa do óleo do motor com filtro novo.",
       data: "15/02/2025", 
       status: "Aguardando aprovação", 
       local: "Oficina", 
@@ -19,6 +20,7 @@ const Servicos = () => {
       id: 2, 
       cliente: "Ana Souza", 
       tipo: "Instalação elétrica", 
+      descricao: "Instalação de novo quadro de distribuição elétrica.",
       data: "20/02/2025", 
       status: "Aprovado", 
       local: "Residência", 
@@ -28,12 +30,14 @@ const Servicos = () => {
     }
   ]);
 
+  // Função para atualizar o status do serviço
   const atualizarStatus = (id, novoStatus) => {
     setServicos(servicos.map(servico =>
       servico.id === id ? { ...servico, status: novoStatus } : servico
     ));
   };
 
+  // Função para gerar contrato e atualizar o status do contrato gerado
   const gerarContrato = (servico) => {
     const doc = new jsPDF();
 
@@ -45,24 +49,30 @@ const Servicos = () => {
     doc.setFontSize(12);
     doc.text(`Cliente: ${servico.cliente}`, 20, 40);
     doc.text(`Serviço: ${servico.tipo}`, 20, 50);
-    doc.text(`Data: ${servico.data}`, 20, 60);
-    doc.text(`Local: ${servico.local}`, 20, 70);
-    doc.text(`Valor Total: R$ ${servico.valor.toFixed(2)}`, 20, 80);
-    doc.text(`Valor do Sinal: R$ ${servico.sinal.toFixed(2)}`, 20, 90);
-    doc.text(`Status: ${servico.status}`, 20, 100);
+    doc.text(`Descrição: ${servico.descricao}`, 20, 60, { maxWidth: 170 });
+    doc.text(`Data: ${servico.data}`, 20, 80);
+    doc.text(`Local: ${servico.local}`, 20, 90);
+    doc.text(`Valor Total: R$ ${servico.valor.toFixed(2)}`, 20, 100);
+    doc.text(`Valor do Sinal: R$ ${servico.sinal.toFixed(2)}`, 20, 110);
+    doc.text(`Status: ${servico.status}`, 20, 120);
 
     doc.text(
       "Ao assinar este contrato, ambas as partes concordam com os termos estabelecidos acima.",
-      20, 120, { maxWidth: 170 }
+      20, 140, { maxWidth: 170 }
     );
 
-    doc.text("_________________________", 20, 160);
-    doc.text("Assinatura do Cliente", 20, 170);
+    doc.text("_________________________", 20, 170);
+    doc.text("Assinatura do Cliente", 20, 180);
 
-    doc.text("_________________________", 120, 160);
-    doc.text("Assinatura do Prestador", 120, 170);
+    doc.text("_________________________", 120, 170);
+    doc.text("Assinatura do Prestador", 120, 180);
 
     doc.save(`Contrato_${servico.cliente}.pdf`);
+
+    // Atualizar o estado para marcar que o contrato foi gerado
+    setServicos(servicos.map(s =>
+      s.id === servico.id ? { ...s, contratoGerado: true } : s
+    ));
   };
 
   return (
@@ -73,6 +83,7 @@ const Servicos = () => {
           <tr>
             <th>Cliente</th>
             <th>Serviço</th>
+            <th>Descrição</th>
             <th>Data</th>
             <th>Local</th>
             <th>Status</th>
@@ -85,6 +96,7 @@ const Servicos = () => {
             <tr key={servico.id}>
               <td>{servico.cliente}</td>
               <td>{servico.tipo}</td>
+              <td>{servico.descricao}</td>
               <td>{servico.data}</td>
               <td>{servico.local}</td>
               <td className={`status ${servico.status.toLowerCase().replace(" ", "-")}`}>
@@ -94,7 +106,9 @@ const Servicos = () => {
               <td>
                 <button onClick={() => atualizarStatus(servico.id, "Aprovado")} className="btn-aprovar">✔️</button>
                 <button onClick={() => atualizarStatus(servico.id, "Rejeitado")} className="btn-rejeitar">❌</button>
-                <button onClick={() => gerarContrato(servico)} className="btn-contrato">📄 Gerar Contrato</button>
+                <button onClick={() => gerarContrato(servico)} className="btn-contrato">
+                  📄 Gerar Contrato
+                </button>
               </td>
             </tr>
           ))}
