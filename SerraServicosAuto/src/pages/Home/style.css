@@ -3,7 +3,7 @@
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff8dc; /* Dourado Claro */
+    background-color: #fff; /* Dourado Claro */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -12,7 +12,7 @@
   
   /* Título */
   .home-container h2 {
-    color: #8B5A2B; /* Marrom */
+    color: #6a1b9a; /* Marrom */
     margin-bottom: 20px;
     font-size: 24px;
   }
@@ -22,7 +22,7 @@
     width: 100%;
     max-width: 100%;
     background: white;
-    border: 1px solid #8B5A2B; /* Marrom */
+    border: 1px solid #6a1b9a; /* Marrom */
     border-radius: 10px;
     font-size: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,7 @@
   
   /* Botões de navegação do calendário */
   .react-calendar__navigation button {
-    color: #8B5A2B;
+    color: #6a1b9a;
     font-size: 18px;
     font-weight: bold;
     border: none;
@@ -41,7 +41,7 @@
   }
   
   .react-calendar__navigation button:hover {
-    background-color: #A67B5B; /* Marrom mais claro */
+    background-color: #691b9a80; /* Marrom mais claro */
     color: white;
     border-radius: 5px;
   }
@@ -61,7 +61,7 @@
   
   /* Dia selecionado */
   .react-calendar__tile--active {
-    background-color: #8B5A2B; /* Marrom */
+    background-color: #6a1b9a; /* Marrom */
     color: white;
     font-weight: bold;
     border-radius: 5px;

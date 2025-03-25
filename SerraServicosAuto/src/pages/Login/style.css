@@ -3,7 +3,7 @@
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #fff8dc; /* Dourado Claro */
+  background-color: #fff; /* Dourado Claro */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -12,7 +12,7 @@
 
 /* Título */
 .login-container h2 {
-  color: #8b5a2b; /* Marrom */
+  color: #6a1b9a; /* Marrom */
   margin-bottom: 20px;
   font-size: 24px;
 }
@@ -22,7 +22,7 @@
   width: 90%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #8b5a2b; /* Marrom */
+  border: 1px solid #6a1b9a; /* Marrom */
   border-radius: 5px;
   font-size: 16px;
   background-color: #fff;
@@ -39,7 +39,7 @@
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 20px;
-  color: #8b5a2b;
+  color: #6a1b9a;
 }
 
 /* Estilização do botão principal */
@@ -47,7 +47,7 @@
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  background-color: #8b5a2b; /* Marrom */
+  background-color: #6a1b9a; /* Marrom */
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -59,7 +59,7 @@
 
 /* Efeito ao passar o mouse */
 .login-container button:hover {
-  background-color: #a67b5b; /* Marrom mais claro */
+  background-color: #691b9a62; /* Marrom mais claro */
 }
 
 /* Estilização do checkbox "Lembrar senha" */
@@ -70,9 +70,7 @@
   margin: 10px 0;
 }
 
-.remember-password input {
-  margin-right: 10px; /* Adiciona um pequeno espaçamento entre o checkbox e o texto */
-}
+
 
 /* Responsividade */
 @media (max-width: 480px) {

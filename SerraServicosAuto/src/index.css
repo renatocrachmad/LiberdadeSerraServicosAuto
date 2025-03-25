@@ -18,7 +18,7 @@ html, body, #root {
   padding: 0;
   height: 100vh; /* Garante que ocupe toda a altura da viewport */
   width: 100vw; /* Garante que ocupe toda a largura da viewport */
-  background-color: #242424; /* Aplica o fundo corretamente */
+  background-color: #dadada; /* Aplica o fundo corretamente */
 }
 
 

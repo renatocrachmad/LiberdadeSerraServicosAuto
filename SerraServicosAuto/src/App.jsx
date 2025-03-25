@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import NavbarExterno from "./components/NavbarExterno";
+import NavbarInterno from "./components/NavbarInterno";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Home from "./pages/Home";
@@ -12,7 +13,7 @@ import PerfilPrestador from "./pages/PerfilPrestador"; // ✅ Importação corre
 function App() {
   return (
     <Router>
-      <Navbar />
+      <NavbarInterno />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
@@ -20,7 +21,8 @@ function App() {
         <Route path="/buscar-prestadores" element={<BuscarPrestadores />} />
         <Route path="/financeiro" element={<Financeiro />} />
         <Route path="/servicos" element={<Servicos />} />
-        <Route path="/perfil-prestador" element={<PerfilPrestador />} /> {/* ✅ Caminho corrigido */}
+        <Route path="/perfil-prestador" element={<PerfilPrestador />} />{" "}
+        {/* ✅ Caminho corrigido */}
       </Routes>
     </Router>
   );
