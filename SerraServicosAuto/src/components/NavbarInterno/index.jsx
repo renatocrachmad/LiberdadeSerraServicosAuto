@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/Logo.png"; // ✅ Importando a logo
 import "./style.css";
 
 const NavbarInterno = () => {
   return (
     <nav className="navbar">
-      <h1>Serra Serviços Auto</h1>
+      <div className="navbar-logo">
+        <img src={logo} alt="Logo Serra Serviços Auto" /> {/* ✅ Logo adicionada */}
+        <h1>Serra Serviços Auto</h1>
+      </div>
       <ul>
         <li>
           <Link to="/home">Home</Link>
