@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Logo e título */
@@ -48,18 +49,53 @@
   color: #ffd700; /* Dourado */
 }
 
+/* 🔥 Estilos para o campo de seleção de localidade */
+.localidade-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.localidade-container label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.localidade-container select {
+  background: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.localidade-container select:hover {
+  background: #f0f0f0;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: center;
     padding: 15px;
+    gap: 10px;
   }
 
   .navbar ul {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+    margin-top: 10px;
+  }
+
+  .localidade-container {
     margin-top: 10px;
   }
 }
