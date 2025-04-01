@@ -1,0 +1,57 @@
+.assinante-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .perfil, .beneficios, .pagamentos, .gerenciar, .suporte {
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  .pagamentos table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .pagamentos th, .pagamentos td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .pagamentos th {
+    background: #f8f8f8;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .btn.cancel {
+    background: #dc3545;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  

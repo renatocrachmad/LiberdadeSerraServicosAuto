@@ -15,6 +15,7 @@ import Financeiro from "./pages/Financeiro";
 import Servicos from "./pages/Servicos";
 import PerfilPrestador from "./pages/PerfilPrestador";
 import AgendarServico from "./pages/AgendarServico";
+import Assinante from "./pages/CentraDoAssinante";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -45,6 +46,7 @@ function App() {
           <Route path="/servicos" element={<Servicos />} />
           <Route path="/perfil-prestador" element={<PerfilPrestador />} />
           <Route path="/agendar-servico" element={<AgendarServico />} />
+          <Route path="/assinante" element={<Assinante />} />
         </Routes>
       </Layout>
     </Router>
