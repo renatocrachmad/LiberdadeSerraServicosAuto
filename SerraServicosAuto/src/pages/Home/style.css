@@ -1,80 +1,91 @@
-/* Estilização do container principal */
+/* Container principal da Home */
 .home-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff; /* Dourado Claro */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: Arial, sans-serif;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  background: url('/assets/logo.png') center/contain no-repeat, #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Título da Home */
+.home-container h2 {
+  color: #6a1b9a;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Container de Propagandas */
+.propaganda-container {
+  width: 90%;
+  max-width: 800px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.propaganda-container h3 {
+  color: #6a1b9a;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* Estilização dos itens de propaganda */
+.propaganda-item {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border-left: 5px solid #6a1b9a;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.propaganda-item:hover {
+  background: #f5e6ff;
+  transform: scale(1.02);
+}
+
+/* Imagens das propagandas */
+.propaganda-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .home-container {
+      padding: 15px;
+      background-size: 80%;
   }
-  
-  /* Título */
-  .home-container h2 {
-    color: #6a1b9a; /* Marrom */
-    margin-bottom: 20px;
-    font-size: 24px;
+
+  .propaganda-container {
+      width: 95%;
   }
-  
-  /* Estilização do calendário */
-  .react-calendar {
-    width: 100%;
-    max-width: 100%;
-    background: white;
-    border: 1px solid #6a1b9a; /* Marrom */
-    border-radius: 10px;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .propaganda-item {
+      flex-direction: column;
+      text-align: center;
   }
-  
-  /* Botões de navegação do calendário */
-  .react-calendar__navigation button {
-    color: #6a1b9a;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 10px;
-    transition: 0.3s;
+
+  .propaganda-img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
   }
-  
-  .react-calendar__navigation button:hover {
-    background-color: #691b9a80; /* Marrom mais claro */
-    color: white;
-    border-radius: 5px;
-  }
-  
-  /* Dias do calendário */
-  .react-calendar__tile {
-    padding: 15px;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
-  
-  /* Efeito ao passar o mouse */
-  .react-calendar__tile:hover {
-    background-color: #FFD700; /* Dourado */
-    color: white;
-  }
-  
-  /* Dia selecionado */
-  .react-calendar__tile--active {
-    background-color: #6a1b9a; /* Marrom */
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .home-container {
-      width: 90%;
-    }
-  
-    .react-calendar {
-      font-size: 14px;
-    }
-  }
-  
+}

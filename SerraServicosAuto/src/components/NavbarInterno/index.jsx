@@ -17,14 +17,18 @@ const NavbarInterno = () => {
         <li>
           <Link to="/home">Home</Link>
         </li>
-        <li>
-          <Link to="/buscar-prestadores">Buscar Prestadores</Link>
-        </li>
+        
         <li>
           <Link to="/financeiro">Financeiro</Link>
         </li>
         <li>
           <Link to="/servicos">Meus Serviços</Link>
+        </li>
+        <li>
+          <Link to="/agendar-servico">Agendar Serviço</Link> {/* 🔥 Novo Link */}
+        </li>
+        <li>
+          <Link to="/assinante">Assinante</Link> {/* 🔥 Novo Link */}
         </li>
         <li>
           <Link to="/perfil-prestador">Perfil Prestador</Link>
@@ -43,7 +47,7 @@ const NavbarInterno = () => {
           onChange={(e) => setLocalidade(e.target.value)}
         >
           <option value="Petrópolis, RJ">Petrópolis, RJ</option>
-          {/* Futuramente, mais localidades podem ser adicionadas aqui */}
+         
         </select>
       </div>
     </nav>

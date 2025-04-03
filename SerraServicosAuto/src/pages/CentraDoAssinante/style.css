@@ -1,57 +1,113 @@
+/* Container principal */
 .assinante-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Seções da página */
+.perfil, .beneficios, .pagamentos, .gerenciar, .suporte {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilização do título de cada seção */
+.assinante-container h1 {
+  color: #6a1b9a;
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.assinante-container h2 {
+  color: #6a1b9a;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* Lista de Benefícios */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 12px;
+  margin-bottom: 6px;
+  border-radius: 5px;  
+  color: #4a0e6b;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+ul li::before {
+  content: "✔️";
+  margin-right: 10px;
+}
+
+/* Tabela de pagamentos */
+.pagamentos table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pagamentos th, .pagamentos td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.pagamentos th {
+  background: #6a1b9a;
+  color: white;
+}
+
+/* Botões padrão */
+.btn {
+  padding: 12px 18px;
+  border: none;
+  background: #6a1b9a;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #4a0e6b;
+}
+
+/* Botão de Cancelamento */
+.btn.cancel {
+  background: #dc3545;
+}
+
+.btn.cancel:hover {
+  background: #c82333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .assinante-container {
+      width: 90%;
   }
-  
-  .perfil, .beneficios, .pagamentos, .gerenciar, .suporte {
-    margin-bottom: 20px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  ul li {
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
-  
-  .pagamentos table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .pagamentos th, .pagamentos td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .pagamentos th {
-    background: #f8f8f8;
-  }
-  
+
   .btn {
-    padding: 10px 15px;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
+      width: 100%;
+      margin-top: 10px;
   }
-  
-  .btn.cancel {
-    background: #dc3545;
-  }
-  
-  .btn:hover {
-    opacity: 0.8;
-  }
-  
+}

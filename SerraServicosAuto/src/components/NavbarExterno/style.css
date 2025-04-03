@@ -1,15 +1,101 @@
+/* Navbar */
 .navbar {
-    background-color: #6a1b9a;
-    color: white;
-    padding: 5px;
-    display: flex;
-    justify-content: space-evenly;
+  background-color: #6a1b9a; /* Roxo escuro */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo e título */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  width: 50px; /* Ajuste conforme necessário */
+  height: auto;
+  margin-right: 10px;
+}
+
+.navbar-logo h1 {
+  font-size: 22px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Lista de Navegação */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Links */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #ffd700; /* Dourado */
+}
+
+/* 🔥 Estilos para o campo de seleção de localidade */
+.localidade-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.localidade-container label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.localidade-container select {
+  background: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.localidade-container select:hover {
+  background: #f0f0f0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
     align-items: center;
+    padding: 15px;
+    gap: 10px;
   }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    margin-top: 10px;
   }
-  
+
+  .localidade-container {
+    margin-top: 10px;
+  }
+}
