@@ -33,22 +33,24 @@ const Home = () => {
       {/* Container de Propagandas */}
       <div className="propaganda-container">
         <h3>Parceiros e Ofertas</h3>
-        {propagandas.map((propaganda) => (
-          <a
-            key={propaganda.id}
-            href={propaganda.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="propaganda-item"
-          >
-            <img
-              src={propaganda.imagem}
-              alt={propaganda.nome}
-              className="propaganda-img"
-            />
-            <p>{propaganda.nome}</p>
-          </a>
-        ))}
+        <div className="propaganda-grid">
+          {propagandas.map((propaganda) => (
+            <a
+              key={propaganda.id}
+              href={propaganda.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="propaganda-item"
+            >
+              <img
+                src={propaganda.imagem}
+                alt={propaganda.nome}
+                className="propaganda-img"
+              />
+              <p>{propaganda.nome}</p>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
