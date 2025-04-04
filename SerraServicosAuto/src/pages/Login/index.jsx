@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Ícones
+import api from "../../Services/api"
 
 const Login = () => {
   const navigate = useNavigate();
