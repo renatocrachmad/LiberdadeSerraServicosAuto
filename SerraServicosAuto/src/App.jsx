@@ -16,6 +16,9 @@ import Servicos from "./pages/Servicos";
 import PerfilPrestador from "./pages/PerfilPrestador";
 import AgendarServico from "./pages/AgendarServico";
 import Assinante from "./pages/CentraDoAssinante";
+import Sobre from "./pages/Sobre";
+import ConfirmarAssinatura from "./pages/ConfirmarAssinatura";
+import Pagamento from "./components/Pagamento";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -47,6 +50,10 @@ function App() {
           <Route path="/perfil-prestador" element={<PerfilPrestador />} />
           <Route path="/agendar-servico" element={<AgendarServico />} />
           <Route path="/assinante" element={<Assinante />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/confirmar-assinatura" element={<ConfirmarAssinatura />} />
+          <Route path="/pagamento" element={<Pagamento />} />
+
         </Routes>
       </Layout>
     </Router>

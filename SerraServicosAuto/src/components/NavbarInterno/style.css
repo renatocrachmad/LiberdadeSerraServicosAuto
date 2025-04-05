@@ -1,101 +1,133 @@
 /* Navbar */
 .navbar {
-  background-color: #6a1b9a; /* Roxo escuro */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #6a1b9a;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
-/* Logo e título */
+/* Scroll effect */
+.navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo + Título */
 .navbar-logo {
   display: flex;
   align-items: center;
 }
 
 .navbar-logo img {
-  width: 50px; /* Ajuste conforme necessário */
+  width: 50px;
   height: auto;
   margin-right: 10px;
 }
 
 .navbar-logo h1 {
-  font-size: 22px;
-  margin: 0;
+  font-size: 20px;
   font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+  color: white;
 }
 
-/* Lista de Navegação */
-.navbar ul {
+/* Hamburguer */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  z-index: 1100;
+}
+
+.menu-toggle .bar {
+  width: 28px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle .bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle .bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Menu Links */
+.nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 16px;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
-/* Links */
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
 .navbar a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: color 0.3s ease-in-out;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease-in-out;
+  padding: 6px 12px;
+  border-radius: 4px;
 }
 
 .navbar a:hover {
-  color: #ffd700; /* Dourado */
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffd700;
 }
 
-/* 🔥 Estilos para o campo de seleção de localidade */
-.localidade-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.localidade-container label {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.localidade-container select {
-  background: white;
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  outline: none;
-  transition: background 0.3s ease-in-out;
-}
-
-.localidade-container select:hover {
-  background: #f0f0f0;
-}
-
-/* Responsividade */
+/* Responsivo */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    gap: 10px;
+  .menu-toggle {
+    display: flex;
   }
 
-  .navbar ul {
+  .nav-links {
     flex-direction: column;
-    gap: 10px;
-    text-align: center;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
     margin-top: 10px;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
   }
 
-  .localidade-container {
-    margin-top: 10px;
+  .nav-links.active {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
   }
 }

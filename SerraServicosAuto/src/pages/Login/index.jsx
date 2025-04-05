@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Ícones
-import api from "../../Services/api"
+import api from "../../Services/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,6 +19,12 @@ const Login = () => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleLogin();
+    }
+  };
+
   return (
     <div className="login-container">
       <h2>Login</h2>
@@ -27,6 +33,7 @@ const Login = () => {
         placeholder="Login"
         value={login}
         onChange={(e) => setLogin(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <div className="password-container">
         <input
@@ -34,6 +41,7 @@ const Login = () => {
           placeholder="Senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <div
           className="eye-icon"
