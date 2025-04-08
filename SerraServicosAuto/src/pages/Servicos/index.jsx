@@ -1,43 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
 import "./style.css";
 
 const Servicos = () => {
-  const [servicos, setServicos] = useState([
-    { 
-      id: 1, 
-      cliente: "Carlos Silva", 
-      tipo: "Troca de óleo", 
-      descricao: "Troca completa do óleo do motor com filtro novo.",
-      data: "15/02/2025", 
-      status: "Aguardando aprovação", 
-      local: "Oficina", 
-      valor: 150, 
-      sinal: 50,
-      contratoGerado: false
-    },
-    { 
-      id: 2, 
-      cliente: "Ana Souza", 
-      tipo: "Instalação elétrica", 
-      descricao: "Instalação de novo quadro de distribuição elétrica.",
-      data: "20/02/2025", 
-      status: "Aprovado", 
-      local: "Residência", 
-      valor: 300, 
-      sinal: 100,
-      contratoGerado: true
-    }
-  ]);
+  const [servicos, setServicos] = useState([]);
 
-  // Função para atualizar o status do serviço
+  useEffect(() => {
+    const servicosSalvos = JSON.parse(localStorage.getItem("servicosPrestador")) || [];
+
+    // Exemplo fixo (pode remover se quiser exibir só os do localStorage)
+    const exemplosFixos = [
+      {
+        id: 1,
+        cliente: "Carlos Silva",
+        tipo: "Troca de óleo",
+        descricao: "Troca completa do óleo do motor com filtro novo.",
+        data: "15/02/2025",
+        status: "Aguardando aprovação",
+        local: "Oficina",
+        valor: 150,
+        sinal: 50,
+        contratoGerado: false,
+      },
+      {
+        id: 2,
+        cliente: "Ana Souza",
+        tipo: "Instalação elétrica",
+        descricao: "Instalação de novo quadro de distribuição elétrica.",
+        data: "20/02/2025",
+        status: "Aprovado",
+        local: "Residência",
+        valor: 300,
+        sinal: 100,
+        contratoGerado: true,
+      },
+    ];
+
+    setServicos([...exemplosFixos, ...servicosSalvos]);
+  }, []);
+
   const atualizarStatus = (id, novoStatus) => {
-    setServicos(servicos.map(servico =>
+    const atualizados = servicos.map((servico) =>
       servico.id === id ? { ...servico, status: novoStatus } : servico
-    ));
+    );
+    setServicos(atualizados);
+    localStorage.setItem("servicosPrestador", JSON.stringify(atualizados));
   };
 
-  // Função para gerar contrato e atualizar o status do contrato gerado
   const gerarContrato = (servico) => {
     const doc = new jsPDF();
 
@@ -58,21 +67,23 @@ const Servicos = () => {
 
     doc.text(
       "Ao assinar este contrato, ambas as partes concordam com os termos estabelecidos acima.",
-      20, 140, { maxWidth: 170 }
+      20,
+      140,
+      { maxWidth: 170 }
     );
 
     doc.text("_________________________", 20, 170);
     doc.text("Assinatura do Cliente", 20, 180);
-
     doc.text("_________________________", 120, 170);
     doc.text("Assinatura do Prestador", 120, 180);
 
     doc.save(`Contrato_${servico.cliente}.pdf`);
 
-    // Atualizar o estado para marcar que o contrato foi gerado
-    setServicos(servicos.map(s =>
+    const atualizados = servicos.map((s) =>
       s.id === servico.id ? { ...s, contratoGerado: true } : s
-    ));
+    );
+    setServicos(atualizados);
+    localStorage.setItem("servicosPrestador", JSON.stringify(atualizados));
   };
 
   return (
@@ -92,21 +103,38 @@ const Servicos = () => {
           </tr>
         </thead>
         <tbody>
-          {servicos.map(servico => (
+          {servicos.map((servico) => (
             <tr key={servico.id}>
               <td>{servico.cliente}</td>
               <td>{servico.tipo}</td>
               <td>{servico.descricao}</td>
               <td>{servico.data}</td>
               <td>{servico.local}</td>
-              <td className={`status ${servico.status.toLowerCase().replace(" ", "-")}`}>
+              <td
+                className={`status ${servico.status
+                  .toLowerCase()
+                  .replace(" ", "-")}`}
+              >
                 {servico.status}
               </td>
               <td>{servico.contratoGerado ? "✅ Sim" : "❌ Não"}</td>
               <td>
-                <button onClick={() => atualizarStatus(servico.id, "Aprovado")} className="btn-aprovar">✔️</button>
-                <button onClick={() => atualizarStatus(servico.id, "Rejeitado")} className="btn-rejeitar">❌</button>
-                <button onClick={() => gerarContrato(servico)} className="btn-contrato">
+                <button
+                  onClick={() => atualizarStatus(servico.id, "Aprovado")}
+                  className="btn-aprovar"
+                >
+                  ✔️
+                </button>
+                <button
+                  onClick={() => atualizarStatus(servico.id, "Rejeitado")}
+                  className="btn-rejeitar"
+                >
+                  ❌
+                </button>
+                <button
+                  onClick={() => gerarContrato(servico)}
+                  className="btn-contrato"
+                >
                   📄 Gerar Contrato
                 </button>
               </td>

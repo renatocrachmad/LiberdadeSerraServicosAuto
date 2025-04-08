@@ -50,10 +50,10 @@ const NavbarInterno = () => {
       <ul className={`nav-links ${menuAberto ? "active" : ""}`}>
         <li><Link to="/home" onClick={() => setMenuAberto(false)}>Home</Link></li>
         <li><Link to="/agendar-servico" onClick={() => setMenuAberto(false)}>Agendar Serviço</Link></li>
+        <li><Link to="/servicos-agendados" onClick={() => setMenuAberto(false)}>Servicos Agendados</Link></li>
         <li><Link to="/financeiro" onClick={() => setMenuAberto(false)}>Financeiro</Link></li>
         <li><Link to="/servicos" onClick={() => setMenuAberto(false)}>Meus Serviços</Link></li>
-        <li><Link to="/assinante" onClick={() => setMenuAberto(false)}>Assinante</Link></li>
-        <li><Link to="/perfil-prestador" onClick={() => setMenuAberto(false)}>Perfil Prestador</Link></li>
+        <li><Link to="/assinante" onClick={() => setMenuAberto(false)}>Assinante</Link></li>        
         <li><Link to="/sobre" onClick={() => setMenuAberto(false)}>Sobre</Link></li>
         <li><Link to="/" onClick={() => setMenuAberto(false)}>Sair</Link></li>
       </ul>

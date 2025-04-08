@@ -1,0 +1,68 @@
+.item-agendamento {
+  background: white;
+  border-left: 5px solid #6a1b9a;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Agrupamento de informações */
+.item-info-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-info-group div {
+  flex: 1 1 45%;
+}
+
+/* Título de campo */
+.item-agendamento strong {
+  color: #6a1b9a;
+}
+
+/* Botões */
+.item-agendamento button {
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: #6a1b9a;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.item-agendamento button:hover {
+  opacity: 0.9;
+}
+
+/* Campos de edição */
+.item-agendamento textarea,
+.item-agendamento input[type="date"],
+.item-agendamento input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.botoes-agendamento {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.botoes-agendamento button {
+  flex: 1;
+}

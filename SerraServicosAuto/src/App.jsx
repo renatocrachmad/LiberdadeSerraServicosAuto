@@ -13,12 +13,12 @@ import Home from "./pages/Home";
 import BuscarPrestadores from "./pages/BuscarPrestadores";
 import Financeiro from "./pages/Financeiro";
 import Servicos from "./pages/Servicos";
-import PerfilPrestador from "./pages/PerfilPrestador";
 import AgendarServico from "./pages/AgendarServico";
 import Assinante from "./pages/CentraDoAssinante";
 import Sobre from "./pages/Sobre";
 import ConfirmarAssinatura from "./pages/ConfirmarAssinatura";
 import Pagamento from "./components/Pagamento";
+import ServicosAgendados from "./pages/ServicosAgendados";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -47,7 +47,7 @@ function App() {
           <Route path="/buscar-prestadores" element={<BuscarPrestadores />} />
           <Route path="/financeiro" element={<Financeiro />} />
           <Route path="/servicos" element={<Servicos />} />
-          <Route path="/perfil-prestador" element={<PerfilPrestador />} />
+          <Route path="/servicos-agendados" element={<ServicosAgendados />} />
           <Route path="/agendar-servico" element={<AgendarServico />} />
           <Route path="/assinante" element={<Assinante />} />
           <Route path="/sobre" element={<Sobre />} />

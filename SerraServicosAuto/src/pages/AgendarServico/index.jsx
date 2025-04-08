@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Input, Modal, Textarea } from "../../components";
 import "./style.css";
 
@@ -12,6 +13,7 @@ const prestadores = [
 ];
 
 const AgendarServico = () => {
+  const navigate = useNavigate();
   const [busca, setBusca] = useState("");
   const [modalAberto, setModalAberto] = useState(false);
   const [mensagemSucesso, setMensagemSucesso] = useState("");
@@ -23,7 +25,6 @@ const AgendarServico = () => {
     prestador: "",
   });
 
-  // Filtrar serviços e prestadores com base na busca
   const resultadosServicos = servicos.filter((servico) =>
     servico.toLowerCase().includes(busca.toLowerCase())
   );
@@ -42,12 +43,52 @@ const AgendarServico = () => {
       prestador: prestador,
     }));
     setModalAberto(true);
-    setMensagemSucesso(""); // Resetar mensagem ao abrir modal
+    setMensagemSucesso("");
+  };
+
+  const existeConflito = () => {
+    const agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+    return agendamentos.some(
+      (a) => a.data === agendamento.data && a.horario === agendamento.horario
+    );
   };
 
   const concluirAgendamento = () => {
+    if (!agendamento.data || !agendamento.horario || !agendamento.tipoServico) {
+      alert("⚠️ Preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    if (existeConflito()) {
+      alert("⚠️ Já existe um serviço agendado para esta data e horário.");
+      return;
+    }
+
+    // Salvar para o cliente
+    const agendamentosSalvos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+    localStorage.setItem("agendamentos", JSON.stringify([...agendamentosSalvos, agendamento]));
+
+    // Criar objeto para o prestador
+    const novoServico = {
+      id: crypto.randomUUID(),
+      cliente: "Cliente Atual", // Se você tiver login, substitua pelo nome real
+      tipo: agendamento.tipoServico,
+      descricao: agendamento.descricao,
+      data: new Date(agendamento.data).toLocaleDateString("pt-BR"),
+      status: "Aguardando aprovação",
+      local: "Oficina", // Você pode adaptar isso se tiver campo local
+      valor: 100,
+      sinal: 30,
+      contratoGerado: false
+    };
+
+    // Salvar para o prestador
+    const servicosPrestador = JSON.parse(localStorage.getItem("servicosPrestador")) || [];
+    localStorage.setItem("servicosPrestador", JSON.stringify([...servicosPrestador, novoServico]));
+
     setModalAberto(false);
-    setMensagemSucesso(`✅ Agendamento realizado com sucesso para ${agendamento.tipoServico}${agendamento.prestador ? ` com ${agendamento.prestador}` : ""}!`);
+    setMensagemSucesso("✅ Agendamento realizado com sucesso!");
+    navigate("/servicos-agendados");
   };
 
   return (
@@ -88,7 +129,6 @@ const AgendarServico = () => {
         )}
       </ul>
 
-      {/* Modal para Agendamento */}
       <Modal isOpen={modalAberto} onClose={() => setModalAberto(false)}>
         <h3 className="text-lg font-bold">
           Agendar {agendamento.tipoServico} {agendamento.prestador && `com ${agendamento.prestador}`}
@@ -97,13 +137,11 @@ const AgendarServico = () => {
           type="date"
           value={agendamento.data}
           onChange={(e) => setAgendamento({ ...agendamento, data: e.target.value })}
-          className="mt-2"
         />
         <Input
           type="time"
           value={agendamento.horario}
           onChange={(e) => setAgendamento({ ...agendamento, horario: e.target.value })}
-          className="mt-2"
         />
         <Textarea
           placeholder="Descrição (máx. 200 caracteres)"
@@ -113,7 +151,6 @@ const AgendarServico = () => {
               setAgendamento({ ...agendamento, descricao: e.target.value });
             }
           }}
-          className="mt-2"
         />
         <Button className="mt-4" onClick={concluirAgendamento}>
           Concluído
