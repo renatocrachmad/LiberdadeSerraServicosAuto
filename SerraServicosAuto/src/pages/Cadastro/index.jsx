@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../Services/api"; 
 import "./style.css";
 
 const Cadastro = () => {
   const navigate = useNavigate();
   const [tipo, setTipo] = useState("cliente");
   const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
@@ -15,19 +17,45 @@ const Cadastro = () => {
   const [tipoServico, setTipoServico] = useState("");
   const [logo, setLogo] = useState(null);
 
-  const handleCadastro = () => {
+  const handleCadastro = async () => {
     if (senha !== confirmarSenha) {
-      alert("As senhas não coincidem!");
+      alert("❌ As senhas não coincidem!");
       return;
     }
 
-    alert("Cadastro realizado com sucesso!");
+    try {
+      if (tipo === "cliente") {
+        await api.post("/clientes", {
+          nome,
+          cpf,
+          email,
+          senha,
+        });
+        alert("✅ Cliente cadastrado com sucesso!");
+        navigate("/home");
 
-    // ✅ Redirecionamento baseado no tipo de usuário
-    if (tipo === "prestador") {
-      navigate("/perfil-prestador"); // Redireciona para a página do prestador
-    } else {
-      navigate("/home"); // Redireciona para a home se for cliente
+      } else {
+        // Envio de dados do prestador
+        const formData = new FormData();
+        formData.append("nomeEmpresa", nomeEmpresa);
+        formData.append("nomePrestador", nomePrestador);
+        formData.append("tipoServico", tipoServico);
+        formData.append("email", email);
+        formData.append("senha", senha);
+        if (logo) {
+          formData.append("logo", logo);
+        }
+
+        await api.post("/prestadores", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+
+        alert("✅ Prestador cadastrado com sucesso!");
+        navigate("/perfil-prestador");
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar:", error);
+      alert("❌ Erro ao cadastrar. Verifique os dados ou tente novamente.");
     }
   };
 
@@ -75,6 +103,12 @@ const Cadastro = () => {
         placeholder="Nome"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="CPF"
+        value={cpf}
+        onChange={(e) => setCpf(e.target.value)}
       />
       <input
         type="email"

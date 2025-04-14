@@ -1,0 +1,78 @@
+.perfil-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff8dc;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .perfil-container h2 {
+    text-align: center;
+    color: #6a1b9a;
+    margin-bottom: 20px;
+  }
+  
+  .foto-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .foto-perfil img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6a1b9a;
+    margin-bottom: 10px;
+  }
+  
+  .form-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .form-perfil label {
+    font-weight: bold;
+    color: #6a1b9a;
+  }
+  
+  .form-perfil input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .botoes-perfil {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .botoes-perfil .btn {
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btn.atualizar {
+    background-color: #6a1b9a;
+  }
+  
+  .btn.deletar {
+    background-color: #b22222;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  

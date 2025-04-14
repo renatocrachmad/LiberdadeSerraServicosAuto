@@ -48,6 +48,7 @@ const NavbarInterno = () => {
 
       {/* Menu */}
       <ul className={`nav-links ${menuAberto ? "active" : ""}`}>
+        <li><Link to="/perfil-usuario" onClick={() => setMenuAberto(false)}>Perfil Usuario</Link></li>
         <li><Link to="/home" onClick={() => setMenuAberto(false)}>Home</Link></li>
         <li><Link to="/agendar-servico" onClick={() => setMenuAberto(false)}>Agendar Serviço</Link></li>
         <li><Link to="/servicos-agendados" onClick={() => setMenuAberto(false)}>Servicos Agendados</Link></li>

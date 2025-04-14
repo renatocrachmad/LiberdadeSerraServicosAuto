@@ -19,6 +19,7 @@ import Sobre from "./pages/Sobre";
 import ConfirmarAssinatura from "./pages/ConfirmarAssinatura";
 import Pagamento from "./components/Pagamento";
 import ServicosAgendados from "./pages/ServicosAgendados";
+import PerfilUsuario from "./pages/PerfilUsuario";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -43,6 +44,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/perfil-usuario" element={<PerfilUsuario />} />
           <Route path="/home" element={<Home />} />
           <Route path="/buscar-prestadores" element={<BuscarPrestadores />} />
           <Route path="/financeiro" element={<Financeiro />} />
