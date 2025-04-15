@@ -5,8 +5,8 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import NavbarExterno from "./components/NavbarExterno";
-import NavbarInterno from "./components/NavbarInterno";
+import Navbar from "./components/Navbar";
+import MenuSanduiche from "./components/Menu";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Home from "./pages/Home";
@@ -28,9 +28,12 @@ const Layout = ({ children }) => {
   return (
     <>
       {paginasExterno.includes(location.pathname) ? (
-        <NavbarExterno />
+        <Navbar />
       ) : (
-        <NavbarInterno />
+        <>
+          <Navbar />
+          <MenuSanduiche />
+        </>
       )}
       {children}
     </>
@@ -53,9 +56,11 @@ function App() {
           <Route path="/agendar-servico" element={<AgendarServico />} />
           <Route path="/assinante" element={<Assinante />} />
           <Route path="/sobre" element={<Sobre />} />
-          <Route path="/confirmar-assinatura" element={<ConfirmarAssinatura />} />
+          <Route
+            path="/confirmar-assinatura"
+            element={<ConfirmarAssinatura />}
+          />
           <Route path="/pagamento" element={<Pagamento />} />
-
         </Routes>
       </Layout>
     </Router>
